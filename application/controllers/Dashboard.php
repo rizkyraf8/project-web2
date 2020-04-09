@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Menu_utama extends CI_Controller {
+class Dashboard extends CI_Controller {
 
     public function index()
     {   
@@ -11,4 +11,4 @@ class Menu_utama extends CI_Controller {
 
 }
 
-/* End of file Menu_utama.php */
+/* End of file Dashboard.php */

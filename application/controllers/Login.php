@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('login_v', null, FALSE);   
+        $this->load->view('login', null, FALSE);   
     }
 
     function ceklogin(){
