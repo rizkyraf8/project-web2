@@ -1,0 +1,9 @@
+<?php
+$this->load->view('_template/header');
+$this->load->view('_template/main_header');
+$this->load->view('_template/sidebar');
+$this->load->view('_template/content');
+$this->load->view('_template/main_footer');
+$this->load->view('_template/control_sidebar');
+$this->load->view('_template/footer');
+?>
