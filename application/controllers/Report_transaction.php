@@ -26,6 +26,13 @@ class Report_transaction extends CI_Controller {
         $query = $this->Report_transaction_model->get_list();
 
         foreach ($query as $key => $value) {
+            $value['action'] = "
+            <a class=\"btn btn-danger\" href=\"" . base_url(getController() . "/pdf/" . encode($value['transactionId'])) . "\">
+            <i class=\"fa fa-file-pdf\"></i>
+            </a>
+            <a class=\"btn btn-success\" href=\"" . base_url(getController() . "/xsl/" . encode($value['transactionId'])) . "\">
+            <i class=\"fa fa-file-excel\"></i>
+            </a>";
             $value['status'] = getStatusTransaksi($value['status']);
 
             array_push($arrData, $value);
@@ -34,6 +41,11 @@ class Report_transaction extends CI_Controller {
         echo json_encode(array("data" => $arrData));
     }
 
+    public function pdf(){
+        $this->load->library('Pdf');
+
+		$this->load->view('report/transaction/cetak_transaction_pdf');
+    }
 }
 
 /* End of file Report_transaction.php */

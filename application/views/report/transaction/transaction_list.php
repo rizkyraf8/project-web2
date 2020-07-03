@@ -1,6 +1,9 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <div class="card-header">
+                <a href="<?= base_url(getController() . "/xls") ?>" class="btn btn-success"><i class="fa fa-file-excel"></i> Import Excel</a>
+            </div>
             <div class="card-body">
                 <table id="tableList" class="table table-bordered table-striped">
                     <thead>
@@ -10,6 +13,7 @@
                             <th>Date Target</th>
                             <th>Date Complete</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +25,7 @@
                             <th>Date Target</th>
                             <th>Date Complete</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </tfoot>
                 </table>

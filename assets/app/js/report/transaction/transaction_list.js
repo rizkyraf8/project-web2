@@ -30,6 +30,10 @@ var ref = $('#tableList').DataTable({
 		{
 			"data": 'status',
 			"className": "text-center"
+		},
+		{
+			"data": 'action',
+			"className": "text-center"
 		}
 	]
 });
