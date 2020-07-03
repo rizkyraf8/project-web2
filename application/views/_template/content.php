@@ -1,11 +1,28 @@
 <div class="content-wrapper">
-    <section class='content-header'>
-        <h1>
-            Link <small>Link</small>
-        </h1>
-        <ol class='breadcrumb'>
-            <li><a href='#'><i class='fa fa-dashboard'></i> Home</a></li>
-            <li class='active'>Link</li>
-        </ol>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>
+                        <?= @$page ?>
+                    </h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#"><?= @$page ?></a></li>
+                        <li class="breadcrumb-item active"><?= @$subpage ?></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <?php
+            if (@$content) {
+                $this->load->view($content);
+            }
+            ?>
+        </div>
     </section>
 </div>

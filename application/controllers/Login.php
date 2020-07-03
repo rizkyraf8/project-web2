@@ -11,29 +11,41 @@ class Login extends CI_Controller {
 
     public function index()
     {
+        if($this->session->userData("userId")){
+            redirect("dashboard");
+            exit;
+        }
+
         $this->load->view('login', null, FALSE);   
     }
 
-    function ceklogin(){
+    function auth(){
         $post = $this->input->post();
-        $username = $post['username'];
-        $password = $post['password'];
+        $username = @$post['userEmail'];
+        $password = @$post['userPassword'];
 
         $query = $this->Login_model->check_login($username, hash_password($password));
 
         if($query){
             $arrSession = array(
-                "name" => $query['name'],
-                "email" => $query['email'],
-                "username" => $query['username'],
+                "userId" => $query['userId'],
+                "userEmail" => $query['userEmail'],
+                "userName" => $query['userName'],
+                "userType" => $query['userType'],
             );
 
             $this->session->set_userdata($arrSession);
             
-            redirect('menu_utama');
+            redirect('dashboard');
         }else{
             echo "<script>alert('Username dan password salah');window.location = '".base_url('login')."'</script>";
         }
+    }
+
+    public function logout(){
+        $array_items = array('userId', 'userName','userEmail','userType');
+		$this->session->unset_userdata($array_items);
+		redirect('login');
     }
 
 }

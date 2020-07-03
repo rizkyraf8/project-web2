@@ -1,26 +1,20 @@
 </div>
 <!-- ./wrapper -->
-<!-- jQuery 3 -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- FastClick -->
-<script src="<?php echo base_url(); ?>assets/bower_components/fastclick/lib/fastclick.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 <!-- Sparkline -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-
-<!-- DataTables -->
-<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 
 <!-- SlimScroll -->
-<script src="<?php echo base_url(); ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>assets/bower_components/chart.js/Chart.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/plugins/datatables-select/js/select.bootstrap4.min.js"></script>
 
 <!-- page script -->
 <script>
@@ -34,8 +28,8 @@
   })
 
   $(function() {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
+    $('#datatable').DataTable()
+    $('#datatable2').DataTable({
       'paging': true,
       'lengthChange': false,
       'searching': false,

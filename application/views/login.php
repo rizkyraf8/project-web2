@@ -8,11 +8,11 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/AdminLTE.min.css">
     <!-- iCheck -->
@@ -29,50 +29,59 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition login-page">
+<body class="login-page" style="min-height: 512.8px;" cz-shortcut-listen="true">
     <div class="login-box">
         <div class="login-logo">
-            <a href="http://localhost/mp_core/assets/AdminLTE"><b>Admin</b>LTE</a>
+            <a href=""><b>Admin</b>LTE</a>
         </div>
         <!-- /.login-logo -->
-        <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="http://localhost/mp_core/app/auth/login" method="post">
-                <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="Email" name="identity">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember_me"> Remember Me
-                            </label>
+                <form action="<?= base_url('login/auth') ?>" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" name="userEmail">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" name="userPassword">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.col -->
-                </div>
-            </form>
-
-
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+            </div>
+            <!-- /.login-card-body -->
         </div>
-        <!-- /.login-box-body -->
     </div>
     <!-- /.login-box -->
 
     <!-- jQuery 3 -->
-    <script src="<?= base_url() ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="<?= base_url() ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="<?= base_url() ?>assets/plugins/iCheck/icheck.min.js"></script>
     <script>
@@ -84,6 +93,8 @@
             });
         });
     </script>
+
+
 </body>
 
 </html>
