@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h3 class="card-title">Add Category</h3>
             </div>
-            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST">
+            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST" id="form">
                 <div class="card-body">
                     <input type="hidden" class="form-control" data-validation="required" data-validation-error-msg="Anda belum mengisi field ini" required="required" name="categoryId" id="categoryId" value="<?= @$data['categoryId'] ? encode(@$data['categoryId']) : "" ?>">
                     <div class="form-group">
@@ -19,9 +19,11 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="loader text-center" style="text-align: center;display:none"></div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script src="<?= base_url() ?>assets/app/js/category/category_add.js"></script>

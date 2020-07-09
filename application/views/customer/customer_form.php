@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h3 class="card-title">Add Customer</h3>
             </div>
-            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST">
+            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST" id="form">
                 <div class="card-body">
                     <input type="hidden" class="form-control" data-validation="required" data-validation-error-msg="Anda belum mengisi field ini" required="required" name="customerId" id="customerId" value="<?= @$data['customerId'] ? encode(@$data['customerId']) : "" ?>">
                     <div class="form-group">
@@ -51,7 +51,8 @@
                 <!-- /.box-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="loader text-center" style="text-align: center;display:none"></div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

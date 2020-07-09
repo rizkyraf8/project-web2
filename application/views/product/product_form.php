@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h3 class="card-title">Add Product</h3>
             </div>
-            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST" data-toggle="validator">
+            <form role="form" action="<?= base_url(getController() . "/save") ?>" method="POST" data-toggle="validator" id="form">
                 <div class="card-body">
                     <input type="hidden" class="form-control" name="productId" id="productId" value="<?= @$data['productId'] ? encode(@$data['productId']) : "" ?>">
                     <div class="form-group">
@@ -49,15 +49,17 @@
                     </div>
                     <div class="form-group">
                         <label for="productDescription">Product Description</label>
-                        <textarea type="number" class="form-control" data-validation="required" data-validation-error-msg="Anda belum mengisi field ini" required="required" name="productDescription" id="productDescription" placeholder="Enter Product Description"> <?= @$data['productDescription'] ?></textarea>
+                        <textarea type="number" class="form-control" data-validation="required" data-validation-error-msg="Anda belum mengisi field ini" required="required" name="productDescription" id="productDescription" placeholder="Enter Product Description"><?= @$data['productDescription'] ?></textarea>
                     </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="loader text-center" style="text-align: center;display:none"></div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script src="<?= base_url() ?>assets/app/js/product/product_add.js"></script>

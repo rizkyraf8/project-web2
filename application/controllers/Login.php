@@ -9,7 +9,7 @@ class Login extends CI_Controller {
         $this->load->model('Login_model');
     }
 
-    public function index()
+    public function index($id = "", $data)
     {
         if($this->session->userData("userId")){
             redirect("dashboard");
@@ -20,6 +20,8 @@ class Login extends CI_Controller {
     }
 
     function auth(){
+        header('Content-Type: application/json');
+        
         $post = $this->input->post();
         $username = @$post['userEmail'];
         $password = @$post['userPassword'];
@@ -36,9 +38,9 @@ class Login extends CI_Controller {
 
             $this->session->set_userdata($arrSession);
             
-            redirect('dashboard');
+            echo json_encode(array("success" => true));
         }else{
-            echo "<script>alert('Username dan password salah');window.location = '".base_url('login')."'</script>";
+            echo json_encode(array("success" => false));
         }
     }
 

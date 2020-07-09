@@ -16,7 +16,7 @@ class Customer extends MY_Controller
         $data['content'] = "customer/customer_list";
         $this->load->view('_template/wrapper', $data, FALSE);
     }
-
+    
     public function json()
     {
         header('Content-Type: application/json');
@@ -68,7 +68,6 @@ class Customer extends MY_Controller
             );
 
             $this->Customer_model->update_data($arrSave, decode(@$post['customerId']));
-            redirect(getController());
         } else {
             $arrSave = array(
                 "customerName" => @$post['customerName'],
@@ -81,7 +80,6 @@ class Customer extends MY_Controller
             );
 
             $this->Customer_model->insert_data($arrSave);
-            redirect(getController());
         }
     }
 

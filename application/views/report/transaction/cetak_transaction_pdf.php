@@ -1,10 +1,7 @@
 <?php 
-// Extend the TCPDF class to create custom Header and Footer
 class MYPDF extends TCPDF {
 
     public function Header() {
-        // $image_file = K_PATH_IMAGES.'logo_example.jpg';
-        // $this->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         $this->SetFont('helvetica', 'B', 18);
         $this->SetY(13);
         $this->Cell(0, 15, 'Invoice', 0, false, 'C', 0, '', 0, false, 'M', 'M');
@@ -119,91 +116,6 @@ EOD;
 $html .= <<<EOD
 </table>
 EOD;
-
-// create some HTML content
-// $html = <<<EOD
-// <style>
-//     table, th, td {
-//         border: 1px solid black;
-//         padding:5px;
-//     }
-
-//     table th {
-//         background-color: #c1c1c1;
-//         font-weight: bold;
-//     }
-
-// </style>
-// <table>
-//     <tr>
-//         <th>Nama Ujian</th>
-//         <td>{$ujian['namaUjian']}</td>
-//         <th>Mata Pelajaran</th>
-//         <td>{$ujian['namaPelajaran']}</td> 
-//     </tr>
-//     <tr>
-//         <th>Jumlah Soal</th>
-//         <td>{$ujian['jumlahSoal']}</td>
-//         <th>Guru</th>
-//         <td>{$ujian['namaGuru']}</td>
-//     </tr>
-//     <tr>
-//         <th>Waktu</th>
-//         <td>{$ujian['waktu']} Menit</td>
-//         <th>Nilai Terendah</th>
-//         <td>{$nilai->min_nilai}</td>
-//     </tr>
-//     <tr>
-//         <th>Tanggal Mulai</th>
-//         <td>{$mulai}</td>
-//         <th>Nilai Tertinggi</th>
-//         <td>{$nilai->max_nilai}</td>
-//     </tr>
-//     <tr>
-//         <th>Tanggal Selasi</th>
-//         <td>{$selesai}</td>
-//         <th>Rata-rata Nilai</th>
-//         <td>{$nilai->avg_nilai}</td>
-//     </tr>
-// </table>
-// EOD;
-
-// $no = 1;
-// foreach($hasil as $hasilDetail) {
-
-// $html .= <<<EOD
-// <br><br><br>
-// <table border="1" style="border-collapse:collapse">
-//     <thead>
-//         <tr align="center">
-//             <th width="5%">No.</th>
-//             <th width="60%">Nama</th>
-//             <th width="15%">Kelas</th>
-//             <th width="10%">Jumlah Benar</th>
-//             <th width="10%">Nilai</th>
-//         </tr>        
-//     </thead>
-//     <tbody>
-// EOD;
-
-// foreach($hasilDetail as $row) {
-// $html .= <<<EOD
-//     <tr>
-//         <td align="center" width="5%">{$no}</td>
-//         <td width="60%">{$row->namaSiswa}</td>
-//         <td width="15%">{$row->namaKelas}</td>
-//         <td width="10%">{$row->jumlahBenar}</td>
-//         <td width="10%">{$row->nilai}</td>
-//     </tr>
-// EOD;
-// $no++;
-// }
-
-// $html .= <<<EOD
-//     </tbody>
-// </table>
-// EOD;
-// }
 
 // output the HTML content
 $pdf->writeHTML($html, true, 0, true, 0);
