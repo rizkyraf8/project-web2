@@ -79,7 +79,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="<?= base_url('transaction') ?>" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
@@ -102,7 +102,7 @@
                             Product
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-header">Setting</li>
                 <?php
                 if ($this->session->userData("userType")) {

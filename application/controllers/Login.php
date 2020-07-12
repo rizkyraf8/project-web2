@@ -9,7 +9,7 @@ class Login extends CI_Controller {
         $this->load->model('Login_model');
     }
 
-    public function index($id = "", $data)
+    public function index()
     {
         if($this->session->userData("userId")){
             redirect("dashboard");
