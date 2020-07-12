@@ -16,7 +16,8 @@ class Report_transaction_model extends CI_Model {
 
     function get_data($id = ""){
         $this->db->where("transactionId", $id);
-        return $this->db->get($this->table_transaction)->row_array();
+        $this->db->join($this->table_customer." t2", "t1.customerId=t2.customerId","left");
+        return $this->db->get($this->table_transaction." t1")->row_array();
     }
 
     function get_data_list($id = ""){

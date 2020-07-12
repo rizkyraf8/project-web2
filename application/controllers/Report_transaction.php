@@ -41,10 +41,13 @@ class Report_transaction extends CI_Controller {
         echo json_encode(array("data" => $arrData));
     }
 
-    public function pdf(){
+    public function pdf($id = ""){
         $this->load->library('Pdf');
-
-		$this->load->view('report/transaction/cetak_transaction_pdf');
+        
+        $data['data'] = $this->Report_transaction_model->get_data(decode($id));
+        $data['product'] = $this->Report_transaction_model->get_data_list(decode($id));
+        $data['data']['status'] = getStatusTransaksi($data['data']['status']);
+		$this->load->view('report/transaction/cetak_transaction_pdf',$data);
     }
 }
 

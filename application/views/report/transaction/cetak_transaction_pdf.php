@@ -73,45 +73,49 @@ $html = <<<EOD
 <table>
     <tr>
         <th>Transaction ID</th>
-        <td>123</td>
+        <td>${data['transactionId']}</td>
         <th>Customer Name</th>
-        <td>1412</td>
+        <td>${data['customerName']}</td>
     </tr>
     <tr>
         <th>Transaction Target</th>
-        <td>123</td>
+        <td>${data['transactionDateTarget']}</td>
         <th>Transaction Actual</th>
-        <td>1412</td>
+        <td>${data['transactionDateActual']}</td>
     </tr>
     <tr>
         <th>Transaction Status</th>
-        <td>123</td>
+        <td>${data['status']}</td>
         <th>Transaction Send</th>
-        <td>1412</td>
+        <td>${data['transactionDateSend']}</td>
     </tr>
 </table>
 <br><br><br>
 <table>
     <tr>
         <th width="5%" style="text-align: center">No</th>
-        <th width="35%" style="text-align: center">Product Name</th>
+        <th width="30%" style="text-align: center">Product Name</th>
         <th width="15%" style="text-align: center">Qty Request</th>
         <th width="15%" style="text-align: center">Qty Available</th>
         <th width="15%" style="text-align: center">Price Product</th>
-        <th width="15%" style="text-align: center">Sub Total</th>
+        <th width="20%" style="text-align: center">Sub Total</th>
     </tr>
 EOD;
-for($i = 0;$i < 11;$i++) {
+$i = 1;
+foreach ($product as $key => $value) {
+    $subTotal = konversi_uang($value['productSalesPrice'] * $value['qtyReady']);
+    $price = konversi_uang($value['productSalesPrice']);
 $html .= <<<EOD
     <tr>
         <td width="5%" style="text-align: center">{$i}</td>
-        <td width="35%">Product Name</td>
-        <td width="15%" style="text-align: right">Qty Request</td>
-        <td width="15%" style="text-align: right">Qty Available</td>
-        <td width="15%" style="text-align: right">Price Product</td>
-        <td width="15%" style="text-align: right">Sub Total</td>
+        <td width="30%">{$value['productName']}</td>
+        <td width="15%" style="text-align: right">{$value['qtyRequest']}</td>
+        <td width="15%" style="text-align: right">{$value['qtyReady']}</td>
+        <td width="15%" style="text-align: right">Rp {$price}</td>
+        <td width="20%" style="text-align: right">Rp {$subTotal}</td>
     </tr>
 EOD;
+$i++;
 }
 $html .= <<<EOD
 </table>
