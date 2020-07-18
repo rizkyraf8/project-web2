@@ -14,6 +14,14 @@ class Report_transaction_model extends CI_Model {
         return $this->db->get($this->table_transaction." t1")->result_array();
     }
 
+    function get_list_report(){
+        $this->db->select('*, (SELECT count(*) FROM transaction_line where transactionId = t1.transactionId) totalItem,
+        (SELECT sum(qtyReady * price) FROM transaction_line where transactionId = t1.transactionId) totalPrice');
+        $this->db->order_by("transactionId", "desc");
+        $this->db->join($this->table_customer." t2", "t1.customerId=t2.customerId","left");
+        return $this->db->get($this->table_transaction." t1")->result_array();
+    }
+
     function get_data($id = ""){
         $this->db->where("transactionId", $id);
         $this->db->join($this->table_customer." t2", "t1.customerId=t2.customerId","left");
