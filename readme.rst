@@ -9,13 +9,13 @@ Jika ingin mencoba aplikasi ini bisa langsung ke `halaman ini <https://rizky_215
 Akses ke halaman Website
 *******************
 
-Email : rizkyraf88@gmail.com__
-Password : admin__
-Role : Admin__
+Email : rizkyraf88@gmail.com\
+Password : admin\
+Role : Admin\
 
-Email : user@rizkyraf.id__
-Password : user__
-Role : User__
+Email : user@rizkyraf.id\
+Password : user\
+Role : User\
 
 *******************
 Support
